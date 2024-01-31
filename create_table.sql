@@ -86,6 +86,10 @@ alter table metrostation rename column ending_point to ending_at;
 alter table metrostation rename column color to color_of_metro;
 alter table metrostation add platform_number varchar(20);
 alter table metrostation modify platform_number int;
+select * from metrostation where id=1 and size=20;
+select * from metrostation where id =1 or size=18 or color_of_metro='purple';
+select * from metrostation where ending_at in('Btm Layout','Khopoli');
+select * from metrostation where id  not in (1,4);
 
 
 /*fifth table*/
@@ -109,6 +113,11 @@ insert into bag values(10,'safari','school bag',5,3,'20 L','India',2500,'Nitin',
 alter table bag modify warranty int;
 alter table bag modify price double;
 alter table bag rename column numberOfCompartments to numberOfZips;
-select * from bag;
+select * from bag where id=4;
+update bag set  brand='Eagle'  where id=4;
+update bag set numberOfZips=4,numberOfPackets=6 ,price=3000 where id=4;
+update bag set brand='safari';
 
-
+/* delete from table_name where condition*/
+delete from bag where id=2;
+delete from bag where brand='safari';
